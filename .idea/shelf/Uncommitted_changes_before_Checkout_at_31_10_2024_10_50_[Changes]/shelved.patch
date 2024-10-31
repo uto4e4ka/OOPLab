@@ -1,0 +1,57 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Exeptions.UnknownClassExeption;\r\nimport Exeptions.DuplicateModelNameException;\r\nimport Exeptions.NoSuchModelNameException;\r\nimport vehicles.Automobile;\r\nimport vehicles.Motorcycle;\r\n\r\nimport java.io.*;\r\n\r\npublic class Main {\r\n Print(\"HelloWorld\");\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision f921f8badfce315b0686519c62286daa683d8370)
++++ b/src/Main.java	(date 1730357405027)
+@@ -7,5 +7,25 @@
+ import java.io.*;
+ 
+ public class Main {
+- Print("HelloWorld");
++    static final String PATH = "D:\\tgbot\\Lab3\\";
++    public static void main(String[] args) throws DuplicateModelNameException, NoSuchModelNameException, IOException, UnknownClassExeption, ClassNotFoundException, CloneNotSupportedException {
++        Automobile automobile = new Automobile("BMW",4);
++        automobile.addItem("Test",9999);
++        Motorcycle motorcycle = new Motorcycle("Suzuki",10);
++       // new TransportTests(automobile).startNormal();
++        //new TransportTests(new Motorcycle("Suzuki",10)).startErr();
++      //new TransportTests(automobile).startIO(PATH+"test1.txt");
++      //new TransportTests(automobile).startWR(PATH+"test.txt");
++      //  new TransportTests(motorcycle).startSerialize(PATH+"ser.bin");
++//        System.out.println(automobile.toString());
++//         Automobile a1 = automobile.clone();
++//        System.out.println(a1.toString());
++//        System.out.println(automobile.equals(a1));
++//        a1.setBrand("bbb");
++//        System.out.println(automobile.equals(a1));
++        System.out.println(motorcycle);
++        Motorcycle m1 = motorcycle.clone();
++        System.out.println(m1.toString());
++        System.out.println(motorcycle);
++    }
+ }
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"20\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision f0bf2194d570388170ce884ea8b146fd47d5298f)
++++ b/.idea/misc.xml	(date 1730357064741)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
