@@ -8,6 +8,8 @@ import vehicles.Automobile;
 import vehicles.Motorcycle;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 public class Transport {
@@ -118,6 +120,30 @@ public class Transport {
                 vehicle.addItem(bufferedReader.readLine(),Double.parseDouble(bufferedReader.readLine()));
             }
             return vehicle;
+
+    }
+    public static Vehicle getByReflex(String brand,int size,Vehicle vehicle){
+        Class<?> clazz;
+        Constructor<?> constructor;
+        Vehicle veh;
+        try {
+          clazz =  Class.forName(vehicle.getClass().getName());
+        }catch (ClassNotFoundException e){
+            return null;
+        }
+        try {
+            constructor = clazz.getConstructor(String.class, int.class);
+        }catch (NoSuchMethodException e){
+            System.out.println("Класса с данным конструктором не найдено!");
+            return null;
+        }
+        try {
+           veh = (Vehicle) constructor.newInstance(brand,size);
+        }catch (InvocationTargetException|InstantiationException|IllegalAccessException e){
+            return null;
+        }
+        return veh;
+
 
     }
 }
