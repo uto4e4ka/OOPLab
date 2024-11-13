@@ -73,6 +73,7 @@ public class Main {
         executors.submit(new PrintNamesRunnable(scuter));
         executors.submit(new PrintNamesRunnable(motorcycle));
         executors.submit(new PrintNamesRunnable(moped));
+        String[] filePaths = {""}
     }
    static void getModel(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String name = args[0];
