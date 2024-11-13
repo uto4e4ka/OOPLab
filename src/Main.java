@@ -3,25 +3,59 @@ import Exeptions.DuplicateModelNameException;
 import Exeptions.NoSuchModelNameException;
 import interfaces.Vehicle;
 import reflection.ReflectTools;
+import threads.PrintNamesThread;
+import threads.PrintPricesThread;
+import threads.runnable.synchronaized.SyncPrintNamesRunnable;
+import threads.runnable.synchronaized.SyncPrintPricesRunnable;
+import threads.runnable.synchronaized.PrintSynchronaizer;
+import threads.runnable.reentrantLock.RePrintModelsRunnable;
+import threads.runnable.reentrantLock.RePrintPricesRunnable;
 import tools.Transport;
-import tools.TransportTests;
 import vehicles.*;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Scanner;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
     static final String PATH = "D:\\tgbot\\Lab3\\";
     public static void main(String[] args) throws DuplicateModelNameException, NoSuchModelNameException, IOException, UnknownClassExeption, ClassNotFoundException, CloneNotSupportedException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Vehicle vehicle = Transport.getByReflex("MWV",10,new Automobile(null));
-        System.out.println(vehicle.toString());
-       TransportTests.startMultiAverage();
-       Transport.writePrintModel(new Automobile("Toyota",10),new FileWriter(PATH+"test.txt"));
-       System.out.println(Transport.inputScannerVehicle(new FileInputStream(PATH+"test.txt")).toString());
-        getModel(args);
+       Automobile automobile = new Automobile("BMW");
+       automobile.addItem("M1",34333);
+       automobile.addItem("M3",22323);
+       automobile.addItem("X6",114141);
+       automobile.addItem("X7",1231313);
+        PrintPricesThread prices = new PrintPricesThread(automobile);
+        PrintNamesThread names = new PrintNamesThread(automobile);
+        prices.setPriority(Thread.MAX_PRIORITY);
+        names.setPriority(Thread.MIN_PRIORITY);
+        prices.start();
+        names.start();
+        try {
+            prices.join();
+            names.join();
+        }catch (Exception e){
+
+        }
+        System.out.println("Вывод через синхронизатор");
+        PrintSynchronaizer printSynchronaizer = new PrintSynchronaizer(automobile);
+        Thread printPrice = new Thread(new SyncPrintNamesRunnable(printSynchronaizer));
+        Thread printNames = new Thread(new SyncPrintPricesRunnable(printSynchronaizer));
+        printPrice.start();
+        printNames.start();
+        try {
+            printPrice.join();
+            printNames.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Вывод через Reentrant");
+        ReentrantLock reentrantLock = new ReentrantLock();
+       Thread rPrintN = new Thread(new RePrintModelsRunnable(reentrantLock,automobile));
+       Thread rPrintP = new Thread(new RePrintPricesRunnable(reentrantLock,automobile));
+       rPrintN.start();
+       rPrintP.start();
+
     }
    static void getModel(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String name = args[0];

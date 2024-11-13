@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa9c7dc-0d19-4c65-9fed-8c3cf3eefc5e" name="Changes" comment="Lab5">
+      <change afterPath="$PROJECT_DIR$/src/threads/PrintNamesThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/PrintPricesThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/PrintNamesRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/reentrantLock/RePrintModelsRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/reentrantLock/RePrintPricesRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/synchronaized/PrintSynchronaizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/synchronaized/SyncPrintNamesRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/runnable/synchronaized/SyncPrintPricesRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab4/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -51,15 +59,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lab5&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "lab6",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
