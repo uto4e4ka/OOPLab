@@ -5,6 +5,7 @@ import interfaces.Vehicle;
 import reflection.ReflectTools;
 import threads.PrintNamesThread;
 import threads.PrintPricesThread;
+import threads.runnable.PrintNamesRunnable;
 import threads.runnable.synchronaized.SyncPrintNamesRunnable;
 import threads.runnable.synchronaized.SyncPrintPricesRunnable;
 import threads.runnable.synchronaized.PrintSynchronaizer;
@@ -15,6 +16,8 @@ import vehicles.*;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
@@ -55,7 +58,21 @@ public class Main {
        Thread rPrintP = new Thread(new RePrintPricesRunnable(reentrantLock,automobile));
        rPrintN.start();
        rPrintP.start();
-
+       try {
+           rPrintN.join();
+           rPrintP.join();
+       } catch (InterruptedException e) {
+           throw new RuntimeException(e);
+       }
+       System.out.println("С помощью ExecutorService");
+        Scuter scuter = new Scuter("Scuter1",10);
+       Motorcycle motorcycle = new Motorcycle("Moto",12);
+       Moped moped = new Moped("Mop1",5);
+        ExecutorService executors = Executors.newFixedThreadPool(2);
+        executors.submit(new PrintNamesRunnable(automobile));
+        executors.submit(new PrintNamesRunnable(scuter));
+        executors.submit(new PrintNamesRunnable(motorcycle));
+        executors.submit(new PrintNamesRunnable(moped));
     }
    static void getModel(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String name = args[0];
