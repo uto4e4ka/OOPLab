@@ -15,7 +15,10 @@ public class Moped implements Vehicle {
     LinkedList<Model> models = new LinkedList<>();
     String brand;
     public Moped(String brand,int size){
+        this.brand = brand;
         fillModels(size);
+    }
+    public Moped(String brand){
         this.brand = brand;
     }
     void fillModels(int size){

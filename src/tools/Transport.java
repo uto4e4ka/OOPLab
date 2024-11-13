@@ -4,8 +4,7 @@ import Exeptions.DuplicateModelNameException;
 import Exeptions.NoSuchModelNameException;
 import Exeptions.UnknownClassExeption;
 import interfaces.Vehicle;
-import vehicles.Automobile;
-import vehicles.Motorcycle;
+import vehicles.*;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
@@ -188,6 +187,15 @@ public class Transport {
                 break;
             case "Motorcycle":
                 vehicle = new Motorcycle(brand);
+                break;
+            case "Moped"  :
+                vehicle = new Moped(brand);
+                break;
+            case "QuadBike":
+                vehicle = new QuadBike(brand);
+                break;
+            case "Scuter":
+                vehicle = new Scuter(brand);
                 break;
             default:
                 throw new UnknownClassExeption();

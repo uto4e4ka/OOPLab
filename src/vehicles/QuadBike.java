@@ -15,7 +15,10 @@ public class QuadBike implements Vehicle {
     String brand;
 
     public QuadBike(String brand,int size){
+        this.brand = brand;
         fillModels(size);
+    }
+    public QuadBike(String brand){
         this.brand = brand;
     }
     void fillModels(int size){
