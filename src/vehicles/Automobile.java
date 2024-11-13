@@ -110,7 +110,7 @@ public class Automobile implements Vehicle {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getBrand()).append(" [");
+        stringBuilder.append("Automobile ").append(getBrand()).append(" [");
         for (int i =0;i<getNames().length;i++){
             stringBuilder.append(getNames()[i])
                     .append(" ")

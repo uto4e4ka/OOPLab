@@ -11,6 +11,7 @@ import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Transport {
     public static void printNames(Vehicle vehicle){//!!!!;
@@ -22,6 +23,18 @@ public class Transport {
             sum+=s;
         }
         return sum/vehicle.length();
+    }
+    public static double getAverage(Vehicle ... vehicles){
+        double sum=0.0;
+        int count =0;
+        for (int i=0;i<vehicles.length;i++){
+            for (Double s:vehicles[i].getPrices()){
+                sum+=s;
+                count++;
+            }
+        }
+        double result =  count == 0 ? 0 : sum / count;
+        return Double.parseDouble(String.format("%.2f",result).replace(",","."));
     }
     public static void printModels(Vehicle vehicle) {
         String [] names = vehicle.getNames();
@@ -145,5 +158,48 @@ public class Transport {
         return veh;
 
 
+    }
+    public static void writePrintModel(Vehicle vehicle, Writer out) {
+        PrintWriter printWriter = new PrintWriter(out);
+        printWriter.printf("%s%n", vehicle.getClass().getSimpleName());
+        printWriter.printf("%s%n", vehicle.getBrand());
+        printWriter.printf("%d%n", vehicle.length());
+
+        String[] models = vehicle.getNames();
+        double[] prices = vehicle.getPrices();
+        for (int i = 0; i < vehicle.length(); i++) {
+            printWriter.printf("%s%n", models[i]);
+            printWriter.printf("%.2f%n", prices[i]);
+        }
+        printWriter.flush();
+    }
+    public static Vehicle inputScannerVehicle(InputStream inputStream) throws UnknownClassExeption, DuplicateModelNameException, NoSuchModelNameException {
+        Scanner scanner = new Scanner(inputStream);
+        Vehicle vehicle;
+
+        String vehicleType = scanner.nextLine();
+        String brand = scanner.nextLine();
+        int modelCount = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (vehicleType) {
+            case "Automobile":
+                vehicle = new Automobile(brand);
+                break;
+            case "Motorcycle":
+                vehicle = new Motorcycle(brand);
+                break;
+            default:
+                throw new UnknownClassExeption();
+        }
+
+        for (int i = 0; i < modelCount; i++) {
+            String modelName = scanner.nextLine();
+            double modelPrice = scanner.nextDouble();
+            if (scanner.hasNextLine()) scanner.nextLine();
+            vehicle.addItem(modelName, modelPrice);
+        }
+
+        return vehicle;
     }
 }

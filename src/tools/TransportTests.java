@@ -4,6 +4,9 @@ import Exeptions.DuplicateModelNameException;
 import Exeptions.NoSuchModelNameException;
 import Exeptions.UnknownClassExeption;
 import interfaces.Vehicle;
+import vehicles.Moped;
+import vehicles.QuadBike;
+import vehicles.Scuter;
 
 import java.io.*;
 
@@ -12,6 +15,7 @@ public class TransportTests {
    public TransportTests(Vehicle vehicle) {
       this.vehicle = vehicle;
    }
+
    public void startNormal() throws DuplicateModelNameException, NoSuchModelNameException {
        System.out.println(">");
        vehicle.addItem("M1",1000);
@@ -51,5 +55,18 @@ public class TransportTests {
        objectOutput.writeObject(vehicle);
        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path));
        Transport.printModels((Vehicle) objectInputStream.readObject());
+   }
+   public static void startMultiAverage(){
+       try {
+           QuadBike quadBike = new QuadBike("Quad1", 2);
+           quadBike.addItem("TestQuad1", 999.9);
+           Scuter scuter = new Scuter("Scuter1", 3);
+           scuter.addItem("Scuter2", 779.3);
+           Moped moped = new Moped("Moped", 2);
+           moped.addItem("TestMoped2.0", 234.2);
+           System.out.println(Transport.getAverage(quadBike, scuter, moped));
+       }catch (Exception e){
+           System.out.println(e.toString());
+       }
    }
 }

@@ -7,10 +7,26 @@ import interfaces.Vehicle;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Scuter implements Vehicle {
     private HashMap<String,Double> models = new HashMap<>();
     String brand;
+
+    public Scuter(String brand,int size){
+        this.brand = brand;
+        fillModels(size);
+    }
+
+    void fillModels(int size) {
+        for (int i = 0; i < size; i++) {
+            try {
+                addItem("Unknown_" + brand + "_" + i,0);
+            }catch (Exception ignored){
+
+            }
+            }
+        }
     @Override
     public String getBrand() {
         return brand;
@@ -81,7 +97,35 @@ public class Scuter implements Vehicle {
         if(models.containsKey(newName))throw new DuplicateModelNameException(newName);
         double temp_price = models.get(name);
         models.remove(name);
-        models.put(name,temp_price);
+        models.put(newName,temp_price);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+       if(!(obj instanceof Scuter)) return  false;
+       if(obj==this)return true;
+       return (((Scuter) obj).brand.equals(brand))
+                &&(((Scuter) obj).models.equals(models));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand,models);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Scuter scuter = (Scuter) super.clone();
+        scuter.models = new HashMap<>();
+        scuter.models.putAll(this.models);
+        return scuter;
+    }
+
+    @Override
+    public String toString() {
+        return "Scuter{" +
+                "models=" + models.toString() +
+                ", brand='" + brand + '\'' +
+                '}';
+    }
 }
