@@ -3,7 +3,7 @@ package threads;
 import interfaces.Vehicle;
 
 public class PrintNamesThread extends Thread{
-    Vehicle vehicle;
+    private Vehicle vehicle;
     public PrintNamesThread(Vehicle vehicle){
         this.vehicle = vehicle;
     }

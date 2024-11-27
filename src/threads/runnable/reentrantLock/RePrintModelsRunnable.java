@@ -5,8 +5,8 @@ import interfaces.Vehicle;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class RePrintModelsRunnable implements Runnable{
-    ReentrantLock reentrantLock;
-    Vehicle vehicle;
+    private ReentrantLock reentrantLock;
+    private Vehicle vehicle;
     public RePrintModelsRunnable(ReentrantLock reentrantLock, Vehicle vehicle){
         this.reentrantLock = reentrantLock;
         this.vehicle = vehicle;

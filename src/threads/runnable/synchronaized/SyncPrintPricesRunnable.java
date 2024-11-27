@@ -1,7 +1,7 @@
 package threads.runnable.synchronaized;
 
 public class SyncPrintPricesRunnable implements Runnable {
-    PrintSynchronaizer printSynchronaizer;
+    private PrintSynchronaizer printSynchronaizer;
 public SyncPrintPricesRunnable(PrintSynchronaizer printSynchronaizer){
     this.printSynchronaizer = printSynchronaizer;
 }

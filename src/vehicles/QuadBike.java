@@ -15,8 +15,8 @@ public class QuadBike implements Vehicle {
     String brand;
 
     public QuadBike(String brand,int size){
-        fillModels(size);
         this.brand = brand;
+        fillModels(size);
     }
     void fillModels(int size){
         for (int i =0;i<size;i++){

@@ -10,8 +10,8 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 
 public class FileReadModelsRunnable implements Runnable{
-String path;
-BlockingQueue<Vehicle> blockingQueue;
+private String path;
+private BlockingQueue<Vehicle> blockingQueue;
 public FileReadModelsRunnable(String path, BlockingQueue<Vehicle> blockingQueue){
     this.path = path;
     this.blockingQueue = blockingQueue;
