@@ -18,6 +18,7 @@ public class UserInterface extends JPanel {
         try {
             serverConnection = new ServerConnection();
         } catch (IOException e) {
+            showError("Ошибка подключения",e.toString());
             throw new RuntimeException(e);
         }
     }
@@ -77,7 +78,7 @@ public class UserInterface extends JPanel {
                         try {
                             String val = (String) jTable.getValueAt(i, k);
                             double d = Double.parseDouble(val);
-                            if (d % 1 == 0)
+                            if (d % 1 == 0&&d<1_0000_000)
                                 m.set(i,k,d);
                             else
                                 error = true;
@@ -87,13 +88,13 @@ public class UserInterface extends JPanel {
 
                     }
                 }
-                   System.out.println(m.toString());
+                   System.out.println(m);
                 if(!error) {
                     try {
                         serverConnection.sendObject(m);
                         resultText.setText("" + serverConnection.getDouble());
                     }catch (Exception ex){
-                        showError("Ошибка отправки",ex.toString());
+                        showError("Ошибка обмена с сервером",ex.toString());
                     }
 
                 }else {

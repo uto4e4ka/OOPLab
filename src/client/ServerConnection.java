@@ -11,7 +11,7 @@ public class ServerConnection {
     DataInputStream dataInputStream;
     ObjectOutputStream objectOutputStream;
     public ServerConnection() throws IOException {
-        socket = new Socket("localhost",1111);
+        socket = new Socket("localhost",7777);
         dataInputStream= new DataInputStream(socket.getInputStream());
         objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
     }
@@ -23,11 +23,8 @@ public class ServerConnection {
 
 
     }
-    public Double getDouble(){
-        try {
+    public Double getDouble() throws IOException {
+
             return dataInputStream.readDouble();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
