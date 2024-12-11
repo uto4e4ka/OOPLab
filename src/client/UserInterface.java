@@ -11,8 +11,11 @@ public class UserInterface extends JPanel {
     private JScrollPane jScrollPane;
     private JPanel mainP = new JPanel(new BorderLayout(10,10));
     private Matrix matrix;
+    private int defW,defH;
     private ServerConnection serverConnection;
     public UserInterface(int defW,int defH){
+        this.defH = defH;
+        this.defW = defW;
         loadInterface();
         setTable(defW,defH);
         try {
@@ -31,8 +34,10 @@ public class UserInterface extends JPanel {
         JPanel sizPanel = new JPanel(new BorderLayout(10,10));
         JPanel textPanel = new JPanel(new GridLayout(2,2,10,10));
         JTextPane jTextWeight = new JTextPane();
+        jTextWeight.setText(defW+"");
         jTextWeight.setPreferredSize(new Dimension(50, 20));
         JTextPane jTextHeight = new JTextPane();
+        jTextHeight.setText(defH+"");
         jTextHeight.setPreferredSize(new Dimension(50, 20));
 
         textPanel.add(new JLabel("Высота"));
