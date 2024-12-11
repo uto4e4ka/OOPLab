@@ -1,10 +1,5 @@
-import Client.Matrix;
-import Client.UserInterface;
+import client.UserInterface;
 import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.*;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
     public static void main(String[] args){

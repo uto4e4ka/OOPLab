@@ -5,61 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa9c7dc-0d19-4c65-9fed-8c3cf3eefc5e" name="Changes" comment="Lab5">
-      <change afterPath="$PROJECT_DIR$/src/Client/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/ServerConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/UserInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/MatrixSizeOutOfBound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exeptions/MatrixWrongSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Exeptions/DuplicateModelNameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Exeptions/ModelPriceOutOfBoundsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Exeptions/NoSuchModelNameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Exeptions/UnknownClassExeption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/interfaces/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/reflection/ReflectTools.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/PrintNamesThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/PrintPricesThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/PrintNamesRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/fileInput/FileReadModelsRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/reentrantLock/RePrintModelsRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/reentrantLock/RePrintPricesRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/synchronaized/PrintSynchronaizer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/synchronaized/SyncPrintNamesRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/threads/runnable/synchronaized/SyncPrintPricesRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/tools/Transport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/tools/TransportTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Automobile$Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Automobile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Moped.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Motorcycle$Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Motorcycle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/QuadBike.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4/vehicles/Scuter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/DuplicateModelNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/ModelPriceOutOfBoundsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/NoSuchModelNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/UnknownClassExeption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/Vehicle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reflection/ReflectTools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/PrintNamesThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/PrintPricesThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/PrintNamesRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/fileInput/FileReadModelsRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/reentrantLock/RePrintModelsRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/reentrantLock/RePrintPricesRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/synchronaized/PrintSynchronaizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/synchronaized/SyncPrintNamesRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threads/runnable/synchronaized/SyncPrintPricesRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Transport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/TransportTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicles/Automobile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicles/Moped.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicles/Motorcycle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicles/QuadBike.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicles/Scuter.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
