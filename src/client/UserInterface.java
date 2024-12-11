@@ -78,7 +78,7 @@ public class UserInterface extends JPanel {
                         try {
                             String val = (String) jTable.getValueAt(i, k);
                             double d = Double.parseDouble(val);
-                            if (d % 1 == 0&&d<1_0000_000)
+                            if (d % 1 == 0&&d<1_0000_000&&d>=0)
                                 m.set(i,k,d);
                             else
                                 error = true;
