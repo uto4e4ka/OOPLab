@@ -1,15 +1,12 @@
 package client;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 
-public class ServerConnection {
-    Socket socket;
-    DataInputStream dataInputStream;
-    ObjectOutputStream objectOutputStream;
+public class ServerConnection implements Closeable {
+    private Socket socket;
+    private DataInputStream dataInputStream;
+    private ObjectOutputStream objectOutputStream;
     public ServerConnection() throws IOException {
         socket = new Socket("localhost",7777);
         dataInputStream= new DataInputStream(socket.getInputStream());
@@ -19,12 +16,17 @@ public class ServerConnection {
 
             objectOutputStream.writeObject(matrix);
             objectOutputStream.flush();
-            //objectOutputStream.close();
 
 
     }
     public Double getDouble() throws IOException {
 
             return dataInputStream.readDouble();
+    }
+
+    @Override
+    public void close() throws IOException {
+        if(socket!=null)
+            socket.close();
     }
 }
